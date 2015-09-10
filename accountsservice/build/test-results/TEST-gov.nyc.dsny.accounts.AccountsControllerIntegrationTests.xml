@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="gov.nyc.dsny.accounts.AccountsControllerIntegrationTests" tests="6" skipped="0" failures="0" errors="0" timestamp="2015-09-10T14:50:20" hostname="137IT1FL49446W7" time="0.052">
+  <properties/>
+  <testcase name="validAccountNuber" classname="gov.nyc.dsny.accounts.AccountsControllerIntegrationTests" time="0.033"/>
+  <testcase name="validAccountOwner" classname="gov.nyc.dsny.accounts.AccountsControllerIntegrationTests" time="0.009"/>
+  <testcase name="invalidAccountNumber" classname="gov.nyc.dsny.accounts.AccountsControllerIntegrationTests" time="0.002"/>
+  <testcase name="validAccountOwnerMatches1" classname="gov.nyc.dsny.accounts.AccountsControllerIntegrationTests" time="0.002"/>
+  <testcase name="validAccountOwnerMatches2" classname="gov.nyc.dsny.accounts.AccountsControllerIntegrationTests" time="0.001"/>
+  <testcase name="invalidAccountName" classname="gov.nyc.dsny.accounts.AccountsControllerIntegrationTests" time="0.002"/>
+  <system-out><![CDATA[
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.2.4.RELEASE)
+
+19268: INFO  AccountsWebApplication - dataSource() invoked
+19268: INFO  AccountsWebApplication - dataSource = org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory$EmbeddedDataSourceProxy@b9fd7fa
+19268: INFO  AccountsWebApplication - System has 21 accounts
+19268: WARN  H2Dialect - HHH000431: Unable to determine H2 database version, certain features may not work
+Hibernate: select count(*) as col_0_0_ from t_account account0_
+19268: INFO  AccountsController - AccountRepository says system has 21 accounts
+19268: WARN  URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+19268: INFO  URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+19268: WARN  URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+19268: INFO  URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+19268: INFO  AccountsControllerIntegrationTests - Started AccountsControllerIntegrationTests in 3.833 seconds (JVM running for 4.848)
+19268: INFO  global - Start validAccountNumber test
+19268: INFO  AccountsController - accounts-service byNumber() invoked: 123456789
+Hibernate: select account0_.id as id1_0_, account0_.balance as balance2_0_, account0_.number as number3_0_, account0_.name as name4_0_ from t_account account0_ where account0_.number=?
+19268: INFO  AccountsController - accounts-service byNumber() found: 123456789 [Keri Lee]: $84749.81
+19268: INFO  global - End validAccount test
+19268: INFO  global - Start validAccount test
+19268: INFO  AccountsController - accounts-service byOwner() invoked: com.sun.proxy.$Proxy73 for Keri Lee
+Hibernate: select account0_.id as id1_0_, account0_.balance as balance2_0_, account0_.number as number3_0_, account0_.name as name4_0_ from t_account account0_ where upper(account0_.name) like upper(?)
+19268: INFO  AccountsController - accounts-service byOwner() found: [123456789 [Keri Lee]: $84749.81]
+19268: INFO  global - In validAccount test
+19268: INFO  global - End validAccount test
+19268: INFO  AccountsController - accounts-service byNumber() invoked: 10101010
+Hibernate: select account0_.id as id1_0_, account0_.balance as balance2_0_, account0_.number as number3_0_, account0_.name as name4_0_ from t_account account0_ where account0_.number=?
+19268: INFO  AccountsController - accounts-service byNumber() found: null
+19268: INFO  global - Start validAccount test
+19268: INFO  AccountsController - accounts-service byOwner() invoked: com.sun.proxy.$Proxy73 for Keri
+Hibernate: select account0_.id as id1_0_, account0_.balance as balance2_0_, account0_.number as number3_0_, account0_.name as name4_0_ from t_account account0_ where upper(account0_.name) like upper(?)
+19268: INFO  AccountsController - accounts-service byOwner() found: [123456789 [Keri Lee]: $84749.81]
+19268: INFO  global - In validAccount test
+19268: INFO  global - End validAccount test
+19268: INFO  global - Start validAccount test
+19268: INFO  AccountsController - accounts-service byOwner() invoked: com.sun.proxy.$Proxy73 for keri
+Hibernate: select account0_.id as id1_0_, account0_.balance as balance2_0_, account0_.number as number3_0_, account0_.name as name4_0_ from t_account account0_ where upper(account0_.name) like upper(?)
+19268: INFO  AccountsController - accounts-service byOwner() found: [123456789 [Keri Lee]: $84749.81]
+19268: INFO  global - In validAccount test
+19268: INFO  global - End validAccount test
+19268: INFO  AccountsController - accounts-service byOwner() invoked: com.sun.proxy.$Proxy73 for Fred Smith
+Hibernate: select account0_.id as id1_0_, account0_.balance as balance2_0_, account0_.number as number3_0_, account0_.name as name4_0_ from t_account account0_ where upper(account0_.name) like upper(?)
+19268: INFO  AccountsController - accounts-service byOwner() found: []
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

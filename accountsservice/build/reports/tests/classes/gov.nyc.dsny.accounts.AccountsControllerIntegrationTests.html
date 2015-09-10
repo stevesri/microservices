@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class gov.nyc.dsny.accounts.AccountsControllerIntegrationTests</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class gov.nyc.dsny.accounts.AccountsControllerIntegrationTests</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/gov.nyc.dsny.accounts.html">gov.nyc.dsny.accounts</a> &gt; AccountsControllerIntegrationTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">6</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.049s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">invalidAccountName</td>
+<td>0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">invalidAccountNumber</td>
+<td>0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">validAccountNuber</td>
+<td>0.033s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">validAccountOwner</td>
+<td>0.009s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">validAccountOwnerMatches1</td>
+<td>0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">validAccountOwnerMatches2</td>
+<td>0.001s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.2.4.RELEASE)
+
+19268: INFO  AccountsWebApplication - dataSource() invoked
+19268: INFO  AccountsWebApplication - dataSource = org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory$EmbeddedDataSourceProxy@b9fd7fa
+19268: INFO  AccountsWebApplication - System has 21 accounts
+19268: WARN  H2Dialect - HHH000431: Unable to determine H2 database version, certain features may not work
+Hibernate: select count(*) as col_0_0_ from t_account account0_
+19268: INFO  AccountsController - AccountRepository says system has 21 accounts
+19268: WARN  URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+19268: INFO  URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+19268: WARN  URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+19268: INFO  URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+19268: INFO  AccountsControllerIntegrationTests - Started AccountsControllerIntegrationTests in 3.833 seconds (JVM running for 4.848)
+19268: INFO  global - Start validAccountNumber test
+19268: INFO  AccountsController - accounts-service byNumber() invoked: 123456789
+Hibernate: select account0_.id as id1_0_, account0_.balance as balance2_0_, account0_.number as number3_0_, account0_.name as name4_0_ from t_account account0_ where account0_.number=?
+19268: INFO  AccountsController - accounts-service byNumber() found: 123456789 [Keri Lee]: $84749.81
+19268: INFO  global - End validAccount test
+19268: INFO  global - Start validAccount test
+19268: INFO  AccountsController - accounts-service byOwner() invoked: com.sun.proxy.$Proxy73 for Keri Lee
+Hibernate: select account0_.id as id1_0_, account0_.balance as balance2_0_, account0_.number as number3_0_, account0_.name as name4_0_ from t_account account0_ where upper(account0_.name) like upper(?)
+19268: INFO  AccountsController - accounts-service byOwner() found: [123456789 [Keri Lee]: $84749.81]
+19268: INFO  global - In validAccount test
+19268: INFO  global - End validAccount test
+19268: INFO  AccountsController - accounts-service byNumber() invoked: 10101010
+Hibernate: select account0_.id as id1_0_, account0_.balance as balance2_0_, account0_.number as number3_0_, account0_.name as name4_0_ from t_account account0_ where account0_.number=?
+19268: INFO  AccountsController - accounts-service byNumber() found: null
+19268: INFO  global - Start validAccount test
+19268: INFO  AccountsController - accounts-service byOwner() invoked: com.sun.proxy.$Proxy73 for Keri
+Hibernate: select account0_.id as id1_0_, account0_.balance as balance2_0_, account0_.number as number3_0_, account0_.name as name4_0_ from t_account account0_ where upper(account0_.name) like upper(?)
+19268: INFO  AccountsController - accounts-service byOwner() found: [123456789 [Keri Lee]: $84749.81]
+19268: INFO  global - In validAccount test
+19268: INFO  global - End validAccount test
+19268: INFO  global - Start validAccount test
+19268: INFO  AccountsController - accounts-service byOwner() invoked: com.sun.proxy.$Proxy73 for keri
+Hibernate: select account0_.id as id1_0_, account0_.balance as balance2_0_, account0_.number as number3_0_, account0_.name as name4_0_ from t_account account0_ where upper(account0_.name) like upper(?)
+19268: INFO  AccountsController - accounts-service byOwner() found: [123456789 [Keri Lee]: $84749.81]
+19268: INFO  global - In validAccount test
+19268: INFO  global - End validAccount test
+19268: INFO  AccountsController - accounts-service byOwner() invoked: com.sun.proxy.$Proxy73 for Fred Smith
+Hibernate: select account0_.id as id1_0_, account0_.balance as balance2_0_, account0_.number as number3_0_, account0_.name as name4_0_ from t_account account0_ where upper(account0_.name) like upper(?)
+19268: INFO  AccountsController - accounts-service byOwner() found: []
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 2.3</a> at Sep 10, 2015 10:50:20 AM</p>
+</div>
+</div>
+</body>
+</html>
