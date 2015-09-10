@@ -1,0 +1,8 @@
+/accounts-server/
+/application.yml
+/db-config.properties
+/gov/
+/logback.xml
+/templates/
+/testdb/
+/org/
