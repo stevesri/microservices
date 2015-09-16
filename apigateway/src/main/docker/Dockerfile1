@@ -1,0 +1,6 @@
+FROM java:8
+VOLUME /tmp
+ADD accountsservice.jar app.jar
+RUN bash -c 'touch /app.jar'
+EXPOSE 2222
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-DEUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://$DISCOVERY_PORT_8761_TCP_ADDR:8761/eureka/","-jar","/app.jar"]

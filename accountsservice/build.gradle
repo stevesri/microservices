@@ -8,6 +8,7 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
         classpath("io.spring.gradle:dependency-management-plugin:0.5.2.RELEASE")
+        classpath ("se.transmode.gradle:gradle-docker:1.2")
     }
 }
 
@@ -16,8 +17,9 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot' 
 apply plugin: 'io.spring.dependency-management' 
+apply plugin: 'docker'
 
-mainClassName = 'org/mysamples/ms/accounts/AccountsServiceApplication'
+mainClassName = 'org.mysamples.ms.accounts.AccountsServiceApplication'
 
 jar {
     baseName = 'accountsservice'
@@ -54,6 +56,30 @@ eclipse {
          containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
     }
 }
+
+docker {
+    maintainer = 'Sriram Vasantha <stevesri@yahoo.com>'
+    baseImage = 'java:8'
+}
+
+// tag::task[]
+task buildDocker(type: Docker, dependsOn: build) {
+//  push = true
+  applicationName = jar.baseName
+  dockerfile = file('src/main/docker/Dockerfile')
+  doFirst {
+    copy {
+      from jar
+      into stageDir
+    }
+    copy {
+      from 'src/main/docker'
+      into stageDir
+   }
+  }
+}
+// end::task[]
+
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
