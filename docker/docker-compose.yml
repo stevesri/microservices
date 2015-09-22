@@ -1,15 +1,15 @@
 discovery:
- image: discovery
+ image: dsnysmart/discovery
  ports:
    - "8761:8761"
 accountsservice:
-  image: accountsservice
+  image: dsnysmart/accountsservice
   ports:
     - "2222:2222"
   links:
     - discovery
 apigateway:
-  image: apigateway
+  image: dsnysmart/apigateway
   ports:
     - "3333:3333"
   links:
